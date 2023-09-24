@@ -1,0 +1,778 @@
+/* ----------------------- Google Fonts -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;700;800;900&display=swap');
+
+/* ----------------------- CSS Variables ------------------- */
+:root
+{
+    --header-height: 3rem;
+    --nav-width: 324px;
+
+    /* font weight */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /* Colores */
+    --first-color: #928c8c;
+    --first-color-dark: #68687e;
+    --first-color-darken: #4f4f70;
+    --text-color: #54423D;
+    --first-color-light: #EAE7E6;
+    --first-color-light-dark: #d7dcee;
+    --first-color-lighten: #FFFAFA;
+
+    /* Font & Tipografia */
+    --body-font: 'Poppins', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /* Margenes */
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+
+    /* z-indice */
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px)
+{
+    :root
+    {
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/* BASE */
+*, ::before, ::after
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    scroll-behavior: smooth;
+}
+
+body
+{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    background-color: var(--first-color-lighten);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, p
+{
+    margin: 0;
+}
+
+h3
+{
+    font-weight: var(--font-semi-bold);
+}
+
+ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Icono de menu */
+.bx
+{
+    font-size: 1.6rem;
+}
+
+/* Clase CSS */
+.seccion
+{
+    padding: 4rem 0 2rem;
+}
+
+.seccion-titulo
+{
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    margin-bottom: var(--mb-3);
+    text-align: center;
+}
+
+.seccion-subtitulo
+{
+    display: block;
+    font-size: var(--small-font-size);
+    color: var(--first-color-darken);
+    text-align: center;
+    font-weight: var(--font-bold);
+    margin-bottom: .25rem;
+}
+
+/* Layout */
+.bd-grid
+{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+}
+
+.l-header
+{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--first-color-lighten);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* -------------------- Nav ----------------------- */
+.nav
+{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu
+{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--first-color);
+    transition: .5s;
+}
+
+.nav__close
+{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--first-color-light);
+    cursor: pointer;
+}
+
+.nav__item
+{
+    margin-bottom: var(--mb-4);
+}
+
+.nav__link
+{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--first-color-lighten);
+    font-weight: var(--font-bold);
+    transition: .3s;
+}
+
+.nav__link:hover
+{
+    color: var(--first-color-light-dark);
+}
+
+.nav__toggle
+{
+    color: var(--first-color-dark);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* --------------------- Menu vista -------------------- */
+.show
+{
+    left: 0;
+}
+
+/* ----------------------- Menu activo ----------------- */
+.active
+{
+    color: var(--first-color-light-dark);
+}
+
+/* ----------------------- Inicio ------------------------------ */
+.inicio__contenedor
+{
+    height: calc(100vh - var(--header-height));
+    align-items: center;
+}
+
+.inicio__dato
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+    text-align: center;
+}
+
+.inicio__img
+{
+    padding-bottom: .3rem;
+    padding-left: 1.5rem;
+    width: 160px;
+    height: 160px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: var(--mb-2);
+}
+
+.inicio__img img
+{
+    width: 100px;
+}
+
+.inicio_nombre
+{
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.inicio_profesion
+{
+    font-size: var(--small-font-size);
+    color: var(--first-color-dark);
+    margin-bottom: var(--mb-5);
+}
+
+.redes_sociales
+{
+    margin-bottom: 5rem;
+}
+
+.link_redes_sociales
+{
+    display: inline-flex;
+    background-color: var(--first-color);
+    color: var(--first-color-lighten);
+    font-size: 1.1rem;
+    border-radius: 50%;
+    padding: .40rem;
+    margin: 0 var(--mb-1);
+    transition: .3s;
+}
+
+.link_redes_sociales:hover
+{
+    background-color: var(--first-color-dark);
+}
+
+.boton_descarga
+{
+    width: 30%;
+}
+
+/* ----------------------- Botones ------------------ */
+.button
+{
+    display: inline-block;
+    background-color: var(--first-color);
+    color: var(--first-color-lighten);
+    padding: 1rem 2rem;
+    font-weight: var(--font-semi-bold);
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.button:hover
+{
+    background-color: var(--first-color-dark);
+}
+
+.button__light
+{
+    background-color: var(--first-color-lighten);
+    color: var(--first-color);
+}
+
+.button__light:hover
+{
+    color: var(--first-color-lighten);
+}
+
+
+/* ------------------------- Información Personal -------------------------------- */
+.informacion__contenedor
+{
+    row-gap: 2rem;
+}
+
+.informacion__datos
+{
+    text-align: center;
+}
+
+.informacion__descripcion
+{
+    margin-bottom: var(--mb-4);
+}
+
+.informacion__img
+{
+    width: 260px;
+    border-radius: .5rem;
+    margin: 0 auto;
+    background-color: var(--first-color);
+}
+
+.informacion__personal
+{
+    margin-bottom: var(--mb-4);
+}
+
+.informacion__personal-titulo
+{
+    font-size: var(--h3-font-size);
+    color: var(--first-color-dark);
+    margin-bottom: var(--mb-2);
+}
+
+.informacion__personal-datos
+{
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
+    margin-bottom: var(--mb-3);
+}
+
+.informacion__personal-icono
+{
+    font-size: 1.5rem;
+    color: var(--first-color);
+    margin-right: var(--mb-4);
+}
+
+.informacion__seccion_subtitulo
+{
+    display: block;
+    font-weight: var(--font-semi-bold);
+}
+
+.informacion__seccion_minisubtitulo
+{
+    font-size: var(--small-font-size);
+}
+
+/* -------------------------------------------- Conocimientos ------------------------- */
+.conocimientos__contenedor
+{
+    row-gap: 2rem;
+}
+
+.conocimientos__subtitulo
+{
+    font-size: var(--h3-font-size);
+    color: var(--first-color-dark);
+    margin-bottom: var(--mb-2);
+}
+
+.conocimientos__dato
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--mb-2);
+    margin-bottom: var(--mb-4);
+}
+
+.conocimientos__nombre
+{
+    text-transform: uppercase;
+}
+
+.conocimientos__bar
+{
+    position: absolute;
+    bottom: -.75rem;
+    height: .25rem;
+    background-color: var(--first-color);
+}
+
+.conocimientos__c
+{
+    width: 90%;
+}
+
+.conocimientos__js
+{
+    width: 30%;
+}
+
+.conocimientos__vhdl
+{
+    width: 25%;
+}
+
+.conocimientos__python
+{
+    width: 50%;
+}
+
+.conocimientos__assembler
+{
+    width: 40%;
+}
+
+.conocimientos__esp32
+{
+    width: 70%;
+}
+
+.conocimientos__arduino
+{
+    width: 90%;
+}
+
+.conocimientos__stm32
+{
+    width: 40%;
+}
+
+.conocimientos__raspberry
+{
+    width: 60%;
+}
+
+/* -------------------------------- Education ---------------------------- */
+.educacion__contenedor
+{
+    row-gap: 2rem;
+}
+
+.educacion__contenido
+{
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+}
+
+.educacion__año, .educacion_carrera
+{
+    font-size: var(--h3-font-size);
+    mask-border: .25rem;
+}
+
+.formacion__grado_posgrado, .educacion_especialidad
+{
+    display: block;
+    font-size: var(--smaller-font-size);
+}
+
+.educacion__año, .formacion__grado_posgrado
+{
+    text-align: right;
+}
+
+.educacion_tiempo
+{
+    padding: 0 1rem;
+    justify-self: center;
+}
+
+.educacion__rounder
+{
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+}
+
+.educacion__linea
+{
+    display: block;
+    height: 90%;
+    width: 2px;
+    background-color: var(--first-color);
+    transform: translate(5px, -4px);
+}
+
+
+/* ------------------------------------------ Proyectos ------------------------- */
+.proyactos
+{
+    background-color: var(--first-color);
+    padding-bottom: 0px;
+}
+
+.proyecto__contenedor
+{
+    row-gap: 2rem;
+}
+
+.proyecto__dato
+{
+    text-align: center;
+}
+
+.proyecto__titulo, .proyecto__descripcion
+{
+    color: var(--first-color-lighten);
+}
+
+.proyecto__descripcion
+{
+    margin-bottom: var(--mb-4);
+}
+
+.proyecto__img
+{
+    width: 220px;
+    justify-self: center;
+}
+
+
+/* ----------------------------- Contacto ---------------------- */
+.contacto__contenedor
+{
+    row-gap: 3rem;
+}
+
+.contacto__entrada
+{
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    background-color: var(--first-color-light);
+    font-size: var(--normal-font-size);
+    margin-bottom: var(--mb-2);
+    border-radius: .5rem;
+}
+
+.contacto::placeholder
+{
+    color: var(--first-color-dark);
+    font-family: var(--body-font);
+    font-weight: var(--font-medium);
+}
+
+.contacto__boton
+{
+    outline: none;
+    border: none;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    cursor: pointer;
+}
+
+.contacto__info
+{
+    margin-bottom: var(--mb-3);
+}
+
+.contacto__subtitulo
+{
+    font-size: var(--h3-font-size);
+    color: var(--first-color-dark);
+    margin-bottom: var(--mb-1);
+}
+
+.contacto__texto
+{
+    display: block;
+    padding-left: 1rem;
+}
+
+/* ---------------------------------- Footer ---------------------------- */
+.footer
+{
+    background-color: var(--first-color-darken);
+    color: var(--first-color-lighten);
+    text-align: center;
+}
+
+.footer__titulo
+{
+    font-size: var(--h1-font-size);
+    margin-bottom: var(--mb-2);
+}
+
+.footer-descripcion
+{
+    margin-bottom: var(--mb-2);
+}
+
+
+/* ------------------------- Media Queries para tabletas ---------------------------- */
+@media screen and (min-width: 786px)
+{
+    .boton_descarga
+    {
+        width: initial;
+    }
+
+    .nav__menu
+    {
+        width: var(--nav-width);
+    }
+
+    .informacion__contenedor, 
+    .conocimientos__contenedor,
+    .contacto__contenedor,
+    .contacto__entradas
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .informacion__img
+    {
+        width: 160px;
+    }
+
+    .informacion__datos
+    {
+        text-align: initial;
+    }
+
+    .informacion__personal
+    {
+        padding-left: 4rem;
+    }
+
+    .educacion_tiempo
+    {
+        padding: 0 2rem;
+    }
+
+    .proyectos
+    {
+        background: none;
+    }
+
+    .proyecto__contenedor
+    {
+        background-color: var(--first-color);
+        grid-template-columns: 2fr 1.2fr;
+        padding: 0 2rem;
+        border-radius: .5rem;
+    }
+
+    .proyecto__dato
+    {
+        padding: 1rem 0;
+    }
+
+    .proyecto__titulo, .proyecto__dato
+    {
+        text-align: initial;
+    }
+
+    .proyecto__img
+    {
+        width: 230px;
+        align-self: flex-end;
+    }
+
+    .contacto__entradas
+    {
+        display: grid;
+        column-gap: 1.5rem;
+    }
+
+    .contacto__info
+    {
+        padding-left: 3rem;
+    }
+
+    .footer
+    {
+        background: none;
+    }
+
+    .footer__contenedor
+    {
+        background-color: var(--first-color-darken);
+        padding: 3rem 0;
+        border-radius: .5rem;
+    }
+}
+
+/* ------------------------------ Media Query para laptop/desktop ------------------------- */
+@media screen and (min-width: 1024px)
+{
+    body
+    {
+        margin: 0;
+        padding-left: var(--nav-width);
+    }
+
+    .l-header
+    {
+        width: 0;
+    }
+
+    .nav__toggle, .nav__logo, .nav__close
+    {
+        display: none;
+    }
+
+    .nav__menu
+    {
+        left: 0;
+    }
+
+    .inicio__contenedor
+    {
+        height: 100vh;
+    }
+
+    .seccion
+    {
+        padding: 3rem 0 2rem;
+    }
+
+    .bd-grid
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .informacion__img
+    {
+        width: 200px;
+    }
+
+}
